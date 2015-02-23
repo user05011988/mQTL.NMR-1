@@ -27,13 +27,13 @@ function (result, lodmarkers = FALSE, spacing = 50)
     for (x in 1:nchr) {
         chrnumberloc <- locationtocircle(result, unique(result[, 1])[x], getchromosomelength(result, 
             unique(result[, 1])[x])/2, spacing = spacing)
-        points(t(c(-1.1, -1.15)))
-        points(t(c(-0.9, -1.15)))
+       # points(t(c(-1.1, -1.15)))
+       # points(t(c(-0.9, -1.15)))
        #points(t(c(-0.7, -1.15)))
-        text(t(c(-1, -1)), paste("Distances in cM"), cex = 0.6)
-        text(t(c(-1.1, -1.1)), paste("0 cM"), cex = 0.6)
-        text(t(c(-0.9, -1.1)), paste(round((totallength + (nchr * 
-            spacing)) * (0.2/(2 * pi)), digits = 1), "cM"), cex = 0.6)
+        # text(t(c(-1, -1)), paste("Distances in cM"), cex = 0.6)
+        #text(t(c(-1.1, -1.1)), paste("0 cM"), cex = 0.6)
+        #text(t(c(-0.9, -1.1)), paste(round((totallength + (nchr * 
+        #    spacing)) * (0.2/(2 * pi)), digits = 1), "cM"), cex = 0.6)
         #text(t(c(-0.7, -1.1)), paste(round((totallength + (nchr * 
             #spacing)) * (0.4/(2 * pi)), digits = 1), "cM"), cex = 0.6)
         text(1.04 * chrnumberloc, paste(unique(result[, 1])[x]), cex = 0.5)

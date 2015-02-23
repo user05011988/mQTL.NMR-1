@@ -20,17 +20,28 @@ BiocStyle::latex()
 \section{How to use {\tt mQTL.NMR package}}
 
 \subsection{Introduction}
-mQTL.NMR provides a complete QTL analysis pipeline for 1H NMR metabolomic data. 
+mQTL.NMR provides a complete QTL analysis pipeline for 1H-NMR metabolomic data. 
 Distinctive features include normalisation using various approaches, peak alignment  
 using RSPA approach, dimensionality reduction and mQTL mapping for animal crosses and humans cohorts. We provide 
 below an application example showing the use of mQTL.NMR package on 
 real-world datasets.
 
 \subsection{Data format}
-Raw data files should be formatted according to the targeted type of analysis (mQTL or mGWA analysis). However, this step can be skipped if the data files are already 
-formatted by the user. Data files supported by mQTL.NMR package should be in 
-the comma-delimited format {\tt csvs}. It is preferable that the user create a 
-new directory to load demo data. Data files can be formatted as follows:
+Raw data files should be formatted according to the targeted type of analysis (mQTL or mGWA analysis). 
+However, this step can be skipped if the data files are already 
+formatted by the user. In order to format the datafiles into the supported format 
+by the mQTL.NMR package (comma-delimited format {\tt csvs}), the format\_mQTL() function 
+should be used with the input files in the following format:
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=15cm]{FilesFormat.png}
+\caption{Format datafiles by using format\_mQTL()}
+\end{figure}
+
+It is preferable that the user create a new directory to load the demonstration dataset. 
+Data files can be formatted as follows:
 
 <<R>>=
 # Download raw data files
@@ -38,6 +49,14 @@ library(mQTL.NMR)
 load_datafiles()
 format_mQTL(phenofile,genofile,physiodat,cleandat,cleangen)
 @
+
+An example of csvs resulted files are shown below:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=15cm]{CSVSFilesFormat.png}
+\caption{Datafiles formatted in csvs}
+\end{figure} 
   
 \subsection{Normalization of metabolomic data}
 The mQTL.NMR package implements several approaches to perform the normalization
@@ -134,7 +153,6 @@ simple.plot(file=aligdat,lo=3.02,hi=3.08,k=1:60,title="NMR profile")
 @ 
 
 <<fig=TRUE ,echo=FALSE >>=
-library("graphics")
 simple.plot(file=aligdat,lo=3.02,hi=3.08,k=1:60,title="NMR profile")
 @
 
@@ -145,7 +163,6 @@ by horizontal lines on the profile (green=min cluster border, red=max cluster bo
 SRV.plot(file1=aligdat,file2=rectangle_SRV,lo=3.02,hi=3.08,k=1:60,title="Clusters plot")
 @
 <<fig=TRUE ,echo=FALSE >>=
-library("graphics")
 SRV.plot(file1=aligdat,file2=rectangle_SRV,lo=3.02,hi=3.08,k=1:60,title="Cluster plot")
 @
 
@@ -157,7 +174,6 @@ Top_SRV.plot(file1=aligdat,file2=rectangle_SRV,results=results,met=met,intMeth="
 @
 
 <<fig=TRUE ,echo=FALSE >>=
-library("graphics")
 Top_SRV.plot(file1=aligdat,file2=rectangle_SRV,results=results,met=met,intMeth="mean")
 @
 
@@ -165,7 +181,6 @@ Top_SRV.plot(file1=aligdat,file2=rectangle_SRV,results=results,met=met,intMeth="
 SRV_lod.plot(results,rectangle_SRV,T=1)
 @
 <<fig=TRUE ,echo=FALSE >>=
-library("graphics")
 SRV_lod.plot(results,rectangle_SRV,T=1)
 @
 

@@ -54,7 +54,7 @@ for (y in 1:dim(signif_ppmsChr)[1]){
 qtll <- locationtocircle(templateresult, templateresult[signif_ppmsChr[y,1],1], 
                     templateresult[signif_ppmsChr[y,1],2], spacing = spacing)   
 points(qtll, col = "red", pch = 19, cex = 0.5)
-#text(qtll * 1.1, markers[signif_ppmsChr[y,1]], col = colorz,cex = 0.3,srt=atan(qtll[2]/qtll[1])*(90/pi))
+#text(qtll * 1.1, markers[signif_ppmsChr[y,1]], col = colorz,cex = 0.3,srt=atan(qtll[2]/qtll[1])*90/pi))
 text(qtll * 1.15, rownames(templateresult)[signif_ppmsChr[y,1]], col = colorz[which(chr==templateresult[signif_ppmsChr[y,1],1])],cex = 0.3,srt=atan(qtll[2]/qtll[1])*(90/pi))
 
 
@@ -68,6 +68,6 @@ text(t(c(traitl[1,1], 0.06 )),paste(round(ppmt[signif_ppmsChr[y,2]],digits=2)),c
 }
 }
 
-legend("topleft", c("Trait", "mQTL"), col = c("black","black"), pch = c(24, 19), cex = 0.6)
+#legend("topleft", c("Trait", "mQTL"), col = c("black","black"), pch = c(24, 19), cex = 0.6)
 
 }
