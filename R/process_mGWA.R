@@ -50,7 +50,7 @@ for (i in 1:np){
   best<-list()
   best$chr<- best1[,"Chromosome"]
   best$pos<- best1[,"Position"]
-  best$LogPval<- res[,top]
+  best$lod<- res[,top]
   class(best)<-c("scanone","data.frame")
   rownames(best)<-snpnames(data)
   
