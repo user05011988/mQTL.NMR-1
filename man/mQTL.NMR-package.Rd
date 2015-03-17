@@ -43,6 +43,11 @@ Lyamine Hedjazi and Jean-Baptiste Cazier
 Maintainer: Lyamine Hedjazi  <\email{mqtl@ican-institute.org}>
 }
 
+\references{
+-	L. HEDJAZI, D. GAUGUIER, P. ZALLOUA, J. NICHOLSON, M-E DUMAS and J-B CAZIER, mQTL-NMR: an integrated suite for genetic mapping 
+of quantitative variations of 1H NMR-based metabolic profiles, to appear in Analytical Chemistry, 2015.
+}
+
 \examples{
 
 # Download data files
