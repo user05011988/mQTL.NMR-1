@@ -45,7 +45,7 @@ Maintainer: Lyamine Hedjazi  <\email{mqtl@ican-institute.org}>
 
 \references{
 -	L. HEDJAZI, D. GAUGUIER, P. ZALLOUA, J. NICHOLSON, M-E DUMAS and J-B CAZIER, mQTL-NMR: an integrated suite for genetic mapping 
-of quantitative variations of 1H NMR-based metabolic profiles, to appear in Analytical Chemistry, 2015.
+of quantitative variations of 1H NMR-based metabolic profiles, Analytical Chemistry, 2015, doi: 10.1021/acs.analchem.5b00145.
 }
 
 \examples{
