@@ -1,8 +1,8 @@
 Package: mQTL.NMR
 Type: Package
 Title: Metabolomic Quantitative Trait Locus Mapping for 1H NMR data 
-Version: 1.1.2
-Date: 2015-02-23
+Version: 1.1.3
+Date: 2015-03-25
 Author: Lyamine Hedjazi and Jean-Baptiste Cazier 
 Maintainer: Lyamine Hedjazi <mqtl@ican-institute.org>
 Description: mQTL.NMR provides a complete mQTL analysis pipeline for 1H NMR data. Distinctive features include normalisation using most-used approaches, peak alignment using RSPA approach, dimensionality reduction using SRV and binning approaches, and mQTL analysis for animal and human cohorts.
