@@ -1,0 +1,107 @@
+%\VignetteIndexEntry{Frequently Asked Questions}
+%\VignetteDepends{mQTL.NMR}
+%\VignetteKeywords{erros, files formats}
+%\VignettePackage{mQTL.NMR}
+%\VignetteEngine{utils::Sweave}
+
+\documentclass[12pt]{article}
+
+<<style, eval=TRUE, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@
+
+\usepackage{subfigure}
+\usepackage{grffile}
+\title{FAQ}
+\author{Lyamine Hedjazi}
+
+\begin{document}
+
+\section{Frequently Asked Questions}
+
+\subsection{{\tt align\_mQTL()} aborted the processing with the error message "Peak validation threshold exceeds spectrum maximum and minimum value"}
+
+The mQTL.NMR package suggests default values optimized through extensive experimental 
+setup and during several NMR studies for alignment using the RSPA approach. 
+However, these parameters might not be well adapted for the data under 
+consideration due to several factors (intrinsic data structure, inappropriate
+ normalisation/scaling). For this reason we have made available the 
+function setupRSPA() enabling a simple modification of different parameters.
+In particular, the error message "Peak validation threshold exceeds spectrum 
+maximum and minimum value" indicates that the peak amplitude threshold 
+parameter (ampThr) defined inside the peakParam structure is not well 
+optimized for the considered data. In such a case we advise the user to try 
+one of the following solutions:\\
+
+      {\bf I- Try a different normalization/scaling method:} in some cases 
+normalization/scaling step affect drastically the structure of data and more
+adapted methods should be selected. \\
+      {\bf II- Modify the alignment parameters through the function setupRSPA():}\\
+In this specific case the user have two options:
+\itemize{
+                \item Manual: by a careful optimization of alignment parameters 
+with the respect to the characteristics of his data. 
+                \item Automated: but less optimal approach concerns the use of the 
+function getAmpThr() available already in the mQTL.NMR package (and accessible
+by mQTL.NMR:::getAmpThr) which allows to estimate automatically this parameter.
+In this specific case, the user needs only to discard the assignment 
+instruction (of PeakParam\$ampThr) from the list of parameters defined 
+inside the function setupRSPA(). The estimation process of the parameter will
+be then launched automatically upon call.
+}\\
+
+In order to perform one of the two options mentioned in the solution (II), the 
+user needs first to retrieve the original function setupRSPA() in his 
+workspace and rename it in order to modify the values of parameters 
+accordingly. Once the parameter modification finished the original function 
+should be exchanged by the modified one (e.g. MysetupRSPA) in the package 
+namespace by using the following script: 
+
+<<eval=FALSE>>= 
+  ## Exchange the function setupRSPA()in the namespace of the mQTL.NMR package
+  unlockBinding("setupRSPA", as.environment("package:mQTL.NMR"))
+  assignInNamespace("setupRSPA", MysetupRSPA, ns="mQTL.NMR", 
+  envir=as.environment("package:mQTL.NMR"))
+  assign("setupRSPA", MysetupRSPA, as.environment("package:mQTL.NMR"))
+  lockBinding("setupRSPA", as.environment("package:mQTL.NMR"))
+  ppmToPt<-mQTL.NMR:::ppmToPt
+@
+
+\subsection{I want to use the package only for the preprocessing of my NMR data and do not have neither genomic nor clinical data}
+
+Only some macro functions require the simultaneous use of metabolomic and genomic data. The user can perform the preprocessing steps using the micro functions provided also by the mQTL.NMR package (e.g. for normalization use simply the function normalise()) which handles only R objects (data frames and matrices).
+
+\subsection{{\tt align\_mQTL()} aborted the processing with the error message "Error in if (step >= splength)...missing value where TRUE/FALSE needed"}
+
+The error is likely due to the inappropriate format of the input files. Please make sure that the adopted format is supported by the mQTL.NMR package.
+
+\section{Session Information}
+
+The version number of R and packages loaded for generating the vignette were:
+
+\begin{verbatim}
+<<echo=FALSE,results=tex>>=
+sessionInfo()
+@
+\end{verbatim}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
