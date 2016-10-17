@@ -1,0 +1,36 @@
+import(qtl, MASS, GenABEL, outliers)
+import(graphics, stats, utils)
+
+#importFrom("qtl","read.cross","calc.genoprob","scanone")
+
+export( "align_mQTL",
+        "format_mQTL",
+        "format_mGWA",
+        "post_mQTL",
+        "pre_mQTL",
+        "process_mQTL",
+        "process_mGWA",
+        "summary_mQTL", 
+        "alignSp", 
+        "attachSegments", 
+        "matchSegments", 
+        "normalise", 
+        "peakPeaks", 
+        "ppersp", 
+        "pplot",
+        "segmentateSp", 
+        "selectRefSp", 
+        "sgolay",
+        "sgolayDeriv", 
+        "SRV",
+        "normalise_mQTL",
+        "simple.plot", 
+        "SRV.plot",
+        "Top_SRV.plot",
+        "SRV_lod.plot",
+        "load_demo_data",
+        "load_datafiles",
+        "setupRSPA",
+        "configureRSPA",
+        "circle_mQTL")
+
