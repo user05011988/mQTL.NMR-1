@@ -33,6 +33,7 @@ if (abs(lag) < length(testSegment))
     }
 
     CorrCoef<-corrcoef_aligned(refSegment,alignedTemp,recursion$step)
+    if (is.na(CorrCoef)) CorrCoef=0
 
     if (CorrCoef>=recursion$acceptance)
      {
@@ -54,6 +55,7 @@ CorrCoef<-corrcoef_aligned(refSegment,alignedSegment,recursion$step)
 
 # Can be adjusted the recursion stops if the resemblance between the
 # referebce and the segment of interest is e.g. 98%
+if (is.na(CorrCoef)) CorrCoef=0
 
 if (CorrCoef>=recursion$resamblance) 
 {return(alignedSegment)}
