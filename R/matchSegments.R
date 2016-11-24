@@ -33,6 +33,8 @@ for (index in 1:intSegLength)
         testSeg$centre<- intSegments$centre[index]
 
     peaksCompared<-comparePeaks(refSp, refSegments, intSp, testSeg, MAX_DIST_FACTOR, FALSE)
+    	
+    if (is.na(peaksCompared$rC)) peaksCompared$rC=0
 
     if ((peaksCompared$rC>MIN_RC) && (peaksCompared$rC!=0))
     {
